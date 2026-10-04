@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+  HTML คือโครงกระดูกของหน้าเว็บ
+  ไฟล์นี้บอกเบราว์เซอร์ว่ามีข้อความ รูป ปุ่ม และกล่องไหนบ้าง
+-->
+<html lang="th">
+  <head>
+    <!-- ส่วน head ไม่โชว์บนหน้าเว็บ แต่ใช้ตั้งค่าหน้า เช่น ชื่อแท็บ ตัวอักษร และลิงก์ CSS -->
+    <meta charset="UTF-8" />
+    <!-- viewport ทำให้หน้าเว็บย่อขยายตามมือถือได้ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>โปรไฟล์ของฉัน</title>
+    <!-- เชื่อมไฟล์ตกแต่งสีและเลย์เอาต์ -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <!-- nav คือเมนูลิงก์ไปยังส่วนต่าง ๆ ในหน้าเดียวกัน -->
+      <p class="logo">My Profile</p>
+      <nav>
+        <a href="#about">เกี่ยวกับฉัน</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#hobbies">สิ่งที่ชอบ</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+      <!-- ปุ่มนี้ JavaScript จะทำให้สลับโหมดสว่าง/มืดอ่อนได้ -->
+      <button id="theme-toggle" type="button">โหมดมืดอ่อน</button>
+    </header>
+
+    <main>
+      <!-- ส่วนแนะนำตัว: รูปโปรไฟล์ ชื่อ และข้อความสั้น -->
+      <section class="hero" id="home">
+        <div class="avatar" aria-hidden="true">
+          <!-- SVG คือรูปที่วาดด้วยโค้ด ไม่ต้องมีไฟล์รูปแยก -->
+          <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="9" cy="10" r="1.6" fill="currentColor" />
+            <path d="M7 17l4-4 3 3 2-2 4 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">สวัสดี</p>
+          <!-- JavaScript จะใส่คำทักทายตามเวลา เช่น สวัสดีตอนเช้า -->
+          <h1 id="greeting">ยินดีต้อนรับสู่หน้าโปรไฟล์</h1>
+          <p class="lead">
+            ฉันชื่อ <strong>Butter</strong> กำลังฝึกเขียนเว็บด้วย HTML, CSS
+            และ JavaScript
+          </p>
+          <a class="button" href="#contact">ทักทายฉัน</a>
+        </div>
+      </section>
+
+      <!-- กล่องเกี่ยวกับฉัน -->
+      <section id="about" class="card">
+        <h2>เกี่ยวกับฉัน</h2>
+        <p>
+          ฉันชอบเรียนรู้ทีละก้าว และอยากสร้างเว็บที่อ่านง่าย สีอ่อน สบายตา
+          หน้านี้ใช้สามไฟล์หลัก: HTML จัดโครง CSS จัดสวย และ JavaScript
+          ทำให้ปุ่มกับฟอร์มทำงานได้
+        </p>
+      </section>
+
+      <!-- รายการทักษะเป็นป้ายเล็ก ๆ -->
+      <section id="skills" class="card">
+        <h2>ทักษะที่กำลังฝึก</h2>
+        <ul class="tags">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Git พื้นฐาน</li>
+        </ul>
+      </section>
+
+      <!-- สิ่งที่ชอบ ใช้การ์ดย่อยหลายใบ -->
+      <section id="hobbies" class="card">
+        <h2>สิ่งที่ชอบ</h2>
+        <div class="hobby-grid">
+          <article>
+            <h3>อ่านหนังสือ</h3>
+            <p>ชอบเรื่องที่อธิบายง่าย และฝึกคิดตามทีละขั้น</p>
+          </article>
+          <article>
+            <h3>ฟังเพลง</h3>
+            <p>เปิดเพลงเบา ๆ ตอนนั่งเขียนโค้ด</p>
+          </article>
+          <article>
+            <h3>วาดโครงเว็บ</h3>
+            <p>ชอบร่างเลย์เอาต์บนกระดาษก่อนลงมือทำจริง</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ฟอร์มติดต่อ: กดส่งแล้ว JavaScript จะแสดงข้อความตอบกลับ -->
+      <section id="contact" class="card">
+        <h2>ติดต่อฉัน</h2>
+        <p>ฝากข้อความสั้น ๆ ได้เลย หน้านี้ยังไม่ส่งอีเมลจริง แค่ฝึกให้ฟอร์มทำงาน</p>
+        <form id="contact-form">
+          <label for="visitor-name">ชื่อของคุณ</label>
+          <input id="visitor-name" name="name" type="text" required maxlength="40" />
+
+          <label for="visitor-message">ข้อความ</label>
+          <textarea id="visitor-message" name="message" rows="4" required></textarea>
+
+          <button type="submit">ส่งข้อความ</button>
+        </form>
+        <p id="form-status" class="status" role="status"></p>
+      </section>
+    </main>
+
+    <footer>
+      <!-- ปีจะถูกใส่ด้วย JavaScript เพื่อไม่ต้องแก้เองทุกปี -->
+      <p>© <span id="year"></span> Butter · ฝึกเขียนเว็บวันละนิด</p>
+    </footer>
+
+    <!-- เชื่อมไฟล์ JavaScript ไว้ท้ายหน้า เพื่อให้ HTML โหลดเสร็จก่อนแล้วค่อยหาปุ่มได้ -->
+    <script src="script.js"></script>
+  </body>
+</html>

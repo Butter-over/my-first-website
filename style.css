@@ -1,0 +1,232 @@
+/*
+  CSS คือไฟล์แต่งหน้าเว็บ
+  เราเลือกสี ขนาดตัวอักษร ระยะห่าง และการจัดวางที่นี่
+*/
+
+/* :root เก็บตัวแปรสีไว้ที่เดียว อยากเปลี่ยนโทนสีก็แก้ตรงนี้ */
+:root {
+  --bg: #eaf2fb;
+  --bg-2: #d7e6f6;
+  --card: #ffffff;
+  --ink: #16324f;
+  --muted: #4d6780;
+  --line: #c5d7ec;
+  --accent: #1f4e89;
+  --accent-strong: #123765;
+  --sky: #7eb6d9;
+  --hover: #3d73b8;
+  --shadow: 0 12px 30px rgba(18, 55, 101, 0.14);
+}
+
+/* เมื่อกดปุ่มสลับธีม JavaScript จะใส่คลาสนี้ที่ body */
+body.dark-soft {
+  --bg: #0f1c2e;
+  --bg-2: #173049;
+  --card: #1b2f48;
+  --ink: #e8f1fb;
+  --muted: #b4c7db;
+  --line: #2c4666;
+  --accent: #4f8fd1;
+  --accent-strong: #9ec7ef;
+  --sky: #5ea0c8;
+  --hover: #6aa3de;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* * หมายถึงทุกองค์ประกอบ ตั้ง box-sizing เพื่อให้ง่ายต่อการคิดขนาดกล่อง */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Noto Sans Thai", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, var(--accent) 0, transparent 32%),
+    radial-gradient(circle at bottom right, var(--sky) 0, transparent 30%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  min-height: 100vh;
+}
+
+/* แถบเมนูด้านบน */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+}
+
+.logo {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--accent-strong);
+}
+
+button,
+.button {
+  font: inherit;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #f4f8fc;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+body.dark-soft button,
+body.dark-soft .button {
+  color: #0f1c2e;
+}
+
+button:hover,
+.button:hover {
+  background: var(--hover);
+}
+
+main {
+  width: min(860px, calc(100% - 32px));
+  margin: 0 auto 48px;
+}
+
+/* ส่วนหัวโปรไฟล์ ใช้ flex เพื่อวางรูปกับข้อความข้างกัน */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0 8px;
+}
+
+/* วงกลมไอคอนรูปภาพ แทนรูปถ่ายจริง */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--sky));
+  flex-shrink: 0;
+  color: #f4f8fc;
+}
+
+.avatar-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.lead {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* การ์ดคือกล่องขาวมน ๆ ที่อ่านง่าย */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  background: #e4eef8;
+  color: var(--accent-strong);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+body.dark-soft .tags li {
+  background: #254262;
+  color: var(--accent);
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.hobby-grid article {
+  background: #eef5fb;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+body.dark-soft .hobby-grid article {
+  background: #223a56;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: inherit;
+}
+
+.status {
+  min-height: 1.4em;
+  color: var(--accent-strong);
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 8px 16px 32px;
+}
+
+/* ถ้าจอแคบ ให้วางรูปโปรไฟล์ซ้อนด้านบนข้อความ */
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
